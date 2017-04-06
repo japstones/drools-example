@@ -1,0 +1,23 @@
+
+package pe.japstones.drools;
+
+rule "Hombres de 25 años"
+    when
+        compra : Compra(sexo == "M",edad == 25)
+    then
+        compra.setRegalo("Shampoo");
+end
+
+rule "Mujeres con importe de compra menor de 200"
+    when
+        compra : Compra(sexo=="F",importeCompra<200)
+    then
+        compra.setRegalo("Entrada doble al cine");
+end
+
+rule "Compras mayores a 1000"
+    when
+        compra : Compra(importeCompra>1000)
+    then
+        compra.setRegalo("Licuadora");
+end
